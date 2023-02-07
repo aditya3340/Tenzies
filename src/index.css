@@ -1,13 +1,86 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: 'Karla', sans-serif;
+}
+
+
+.container {
+  background-color: #2B283A;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.card {
+  background-color: #F5F5F5;
+  width: 80%;
+  height: 80%;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.grid {
+ display: grid;
+  grid-template: auto auto / repeat(5, 1fr);
+  gap: 20px;
+}
+
+.title {
+  font-size: 40px;
+  margin: 0;
+}
+
+.instructions {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  margin-top: 0;
+  text-align: center;
+}
+
+.dice-component {
+  
+  height: 50px;
+  width: 50px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;   
+}
+
+.dic-num {
+  font-size: 2em;
+}
+
+.roll-dice {
+  height: 50px;
+  width: 100px;
+  background-color: #5035FF;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-family: 'Karla', sans-serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.roll-dice:focus {
+  outline: none;
+}
+
+.roll-dice:active {
+  box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
+span {
+  color: red;
+  font-weight: bold;
 }
