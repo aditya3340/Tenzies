@@ -7,10 +7,10 @@ export default function App() {
   //creating new State for die element and initialising them
   //by allNewDice function because it will gen random array
   const [newDie, setNewDie] = React.useState(allNewDice);
+  const [count, setCount] = React.useState(0);
   const [tenzies, setTenzies] = React.useState(false); //check whether the user won or not
 
   //keeping the states in sync with each other can be a good reason for using useEffect
-
   React.useEffect(() => {
     const allHeld = newDie.every((die) => die.isHeld);
     const firstValue = newDie[0].value;
@@ -18,7 +18,6 @@ export default function App() {
 
     if (allHeld && allSameValues) {
       setTenzies(true);
-      console.log("you won");
     }
   }, [newDie]);
 
@@ -84,6 +83,7 @@ export default function App() {
   //function for handling roll button
   //using which every time it is clicked a new die
   //will appear
+
   function diceRoll() {
     //whereEver new die roll we have to check isHeld property of the die and stick that die and get
     //new value
@@ -93,9 +93,12 @@ export default function App() {
           return die.isHeld ? die : generateNewDie();
         })
       );
-    }else {
-      setTenzies(false)
-      setNewDie(allNewDice())
+
+      setCount((prevCount) => prevCount + 1);
+    } else {
+      setTenzies(false);
+      setNewDie(allNewDice());
+      setCount(0);
     }
   }
 
@@ -113,7 +116,9 @@ export default function App() {
         <button onClick={diceRoll} className="roll-dice">
           {tenzies ? "Restart" : "Roll"}
         </button>
-          <p>{tenzies && "Click above to start New Game"}</p>
+        <p>{tenzies && "Click above to start New Game"}</p>
+        <p>User Rolled: {count}</p>
+        <p>HighScore : {}</p>
       </div>
     </div>
   );
